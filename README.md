@@ -7,20 +7,20 @@ This repository is the modification of `tdlight-natives-osx` build scripts to co
 - [TDLight Java](https://github.com/tdlight-team/tdlight-java)
 - [dimitree54 Fork](https://github.com/dimitree54/tdlight-java-natives)
 
+> **NOTE:** If you want to take compiled artifact, go to: **compiled/tdlight-natives-osx-aarch64.zip**.
+
 You may need it, if you're facing following error:
-```
-Caused by: it.tdlight.common.utils.CantLoadLibrary: Native libraries for platform OSX-AARCH64 not found! Required version: tdlight osx aarch64 4.0.267
-```
+> Caused by: it.tdlight.common.utils.CantLoadLibrary: Native libraries for platform OSX-AARCH64 not found! Required version: tdlight osx aarch64 4.0.267
 
 After successful compilation `tdlight-natives-osx-aarch64:4.0.0-SNAPSHOT` will be place to you mavenLocal repository (`~/.m2/repository/it/tdlight/tdlight-natives-osx-aarch64/4.0.0-SNAPSHOT`).
 
-To use that natives in `tdlite-java` you need to recompile it as well: https://github.com/dimitree54/tdlight-java
+To use that natives in `tdlite-java` you need to recompile it as well: https://github.com/dimitree54/tdlight-java.
 
 ## Compilation
 
-1. Install JDK 1.8, and make it default (`java -version` should print 1.8)
-2. Run `scripts/utils./compile-natives-package.sh` for natives
-3. Run `./compile-tdapi-package.sh` for tdapi
+1. Install JDK 1.8, and make it default (`java -version` should print 1.8).
+2. Run `scripts/utils./compile-natives-package.sh` for natives.
+3. Run `./compile-tdapi-package.sh` for tdapi.
 
 ## Notice
 
