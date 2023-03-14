@@ -1,22 +1,26 @@
-# Native libraries used by TDLight Java for Mac OS AARCH64
+# Native libraries used by TDLight Java for Apple Silicon (MacOS M1)
 
-This repository generates JNI packages for each architecture and OS used by [TDLight Java](https://github.com/tdlight-team/tdlight-java).
+This repository is the modification of `tdlight-natives-osx` build scripts to compile them for M1 processor.
+- [TDLight Java](https://github.com/tdlight-team/tdlight-java) 
+- [dimitree54 Fork](https://github.com/dimitree54/tdlight-java-natives)
 
-In that repository I publish settings and some workaround that helped me to compile tdlight-java natives for M1 processor.
-Check `./compile-natives-package.sh` and its comments. 
-After successful compilation `tdlight-natives-osx-aarch64:4.0.0-SNAPSHOT` will be place to you mavenLocal repository (for me, it is `~/.m2/repository/it/tdlight/tdlight-natives-osx-aarch64/4.0.0-SNAPSHOT`)
-To use that natives in tdlite-java you need to recompile it as well: https://github.com/dimitree54/tdlight-java
+You may need it, if you're facing following error:
+```
+Caused by: it.tdlight.common.utils.CantLoadLibrary: Native libraries for platform OSX-AARCH64 not found! Required version: tdlight osx aarch64 4.0.267
+```
 
-## Building
+After successful compilation `tdlight-natives-osx-aarch64:4.0.0-SNAPSHOT` will be place to you mavenLocal repository (`~/.m2/repository/it/tdlight/tdlight-natives-osx-aarch64/4.0.0-SNAPSHOT`).
 
-Go to `scripts/utils` and run
+To use that natives in `tdlite-java` you need to recompile it as well: https://github.com/dimitree54/tdlight-java
 
-- `./compile-natives-package.sh` for natives
+## Compilation
 
-- `./compile-tdapi-package.sh` for tdapi
+1. Install JDK 1.8, and make it default (`java -version` should print 1.8)
+2. Run `scripts/utils./compile-natives-package.sh` for natives
+3. Run `./compile-tdapi-package.sh` for tdapi
 
-## Download
+## Notice
 
-Download the latest release of [TDLight Java](https://github.com/tdlight-team/tdlight-java/releases)
-
-If you want to download directly the native packages for each architecture and os, go to Actions tab and click on the latest build.
+In case of further version changing, don't forget to update source versions of tdlib / tdlight:
+1. Put source code of tdlib from [[here]](https://github.com/tdlib) to `tdlight-java-natives/implementations/tdlib`. [[current version]](https://github.com/tdlib/td/tree/d48901435017783b5cb91000c29940f9b348158d)
+2. Put source code of tdlight from [[here]](https://git.ignuranza.net/tdlight-team/tdlight) to `tdlight-java-natives/implementations/tdlight`. [[current_version]](https://git.ignuranza.net/tdlight-team/tdlight/src/commit/277513ce18c2d08a0d4c314dd23e873412ef54f6)

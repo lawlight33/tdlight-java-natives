@@ -85,16 +85,16 @@ echo "Creating missing folders..."
 echo "Copying executables..."
 
 if [[ "$OPERATING_SYSTEM_NAME" == "windows" ]]; then
-	TD_GENERATED_BINARIES_DIR="$(realpath -m ./generated/td_tools/td/generate/Release)"
+	TD_GENERATED_BINARIES_DIR="$(realpath ./generated/td_tools/td/generate/Release)"
 else
-	TD_GENERATED_BINARIES_DIR="$(realpath -m ./generated/td_tools/td/generate)"
+	TD_GENERATED_BINARIES_DIR="$(realpath ./generated/td_tools/td/generate)"
 fi
 export TD_GENERATED_BINARIES_DIR
 
 # Configure cmake
 echo "Configuring CMake..."
 cd ./generated/
-echo "Telegram source path: '$(realpath -m ./implementation/)'"
+echo "Telegram source path: '$(realpath ./implementation/)'"
 
 # Run cmake to generate TdApi.java
 echo "Generating TdApi.java..."
@@ -103,7 +103,7 @@ php ./implementation/td/generate/JavadocTlDocumentationGenerator.php "./implemen
 mv "../generated-$API_TYPE/src/main/java/${JAVA_API_PACKAGE_PATH}/TdApi.java" "../generated-$API_TYPE/src/main/java/${JAVA_API_PACKAGE_PATH}/php_TdApi.java"
 
 echo "Patching TdApi.java for Java ${MIN_JDK_VERSION}..."
-${PYTHON_EXECUTABLE} ../scripts/core/tdlib-serializer "$(realpath -m  ../generated-"$API_TYPE"/src/main/java/${JAVA_API_PACKAGE_PATH}/php_TdApi.java)" "$(realpath -m ../generated-"$API_TYPE"/src/main/java/${JAVA_API_PACKAGE_PATH}/unexpanded_TdApi.java)" "$(realpath -m ../scripts/core/tdlib-serializer/headers.txt)" "$SEALED"
+${PYTHON_EXECUTABLE} ../scripts/core/tdlib-serializer "$(realpath  ../generated-"$API_TYPE"/src/main/java/${JAVA_API_PACKAGE_PATH}/php_TdApi.java)" "$(realpath ../generated-"$API_TYPE"/src/main/java/${JAVA_API_PACKAGE_PATH}/unexpanded_TdApi.java)" "$(realpath ../scripts/core/tdlib-serializer/headers.txt)" "$SEALED"
 if [[ "$OPERATING_SYSTEM_NAME" == "osx" ]]; then
 	unexpand --tabs=2 ../generated-"$API_TYPE"/src/main/java/${JAVA_API_PACKAGE_PATH}/unexpanded_TdApi.java > ../generated-"$API_TYPE"/src/main/java/${JAVA_API_PACKAGE_PATH}/TdApi.java
 else
@@ -111,7 +111,7 @@ else
 fi
 rm ../generated-"$API_TYPE"/src/main/java/${JAVA_API_PACKAGE_PATH}/unexpanded_TdApi.java
 
-echo "Generated '$(realpath -m ../generated-"$API_TYPE"/src/main/java/${JAVA_API_PACKAGE_PATH}/TdApi.java)'"
+echo "Generated '$(realpath ../generated-"$API_TYPE"/src/main/java/${JAVA_API_PACKAGE_PATH}/TdApi.java)'"
 
 
 rm ../generated-"$API_TYPE"/src/main/java/${JAVA_API_PACKAGE_PATH}/php_TdApi.java

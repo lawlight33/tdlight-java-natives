@@ -70,8 +70,11 @@ if [[ -n "$CROSS_BUILD_DEPS_DIR" ]]; then
 fi
 export CMAKE_EXTRA_ARGUMENTS_TD
 
-INSTALL_PREFIX="$(realpath -m ../td_bin/)"
-INSTALL_BINDIR="$(realpath -m ../td_bin/bin)"
+mkdir ../td_bin
+mkdir ../td_bin/bin
+
+INSTALL_PREFIX="$(realpath ../td_bin/)"
+INSTALL_BINDIR="$(realpath ../td_bin/bin)"
 echo "Install prefix: $INSTALL_PREFIX"
 echo "Install bindir: $INSTALL_BINDIR"
 # shellcheck disable=SC2086

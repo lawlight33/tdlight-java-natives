@@ -82,9 +82,9 @@ echo "Creating missing jni-src folders..."
 # Copy executables
 echo "Copying executables..."
 if [[ "$OPERATING_SYSTEM_NAME" == "windows" ]]; then
-	TD_GENERATED_BINARIES_DIR=$(realpath -m ./generated/td_tools/td/generate/Release)
+	TD_GENERATED_BINARIES_DIR=$(realpath ./generated/td_tools/td/generate/Release)
 else
-	TD_GENERATED_BINARIES_DIR=$(realpath -m ./generated/td_tools/td/generate)
+	TD_GENERATED_BINARIES_DIR=$(realpath ./generated/td_tools/td/generate)
 fi
 export TD_GENERATED_BINARIES_DIR
 
@@ -102,15 +102,15 @@ fi
 cmake \
  "-DCMAKE_BUILD_TYPE=${BUILD_TYPE}" \
  -DTD_GENERATED_BINARIES_DIR=${TD_GENERATED_BINARIES_DIR} \
- "-DTD_SRC_DIR=$(realpath -m ../implementation/)" \
- "-DTDNATIVES_BIN_DIR=$(realpath -m ../tdjni_bin/)" \
- "-DTDNATIVES_DOCS_BIN_DIR=$(realpath -m ../tdjni_docs/)" \
- "-DTd_DIR=$(realpath -m ../td_bin/lib/cmake/Td/)" \
- "-DJAVA_SRC_DIR=$(realpath -m ../src/main/jni-java-src/)" \
- "-DTDNATIVES_CPP_SRC_DIR:PATH=$(realpath -m ../src/main/jni-cpp-src/)" \
+ "-DTD_SRC_DIR=$(realpath ../implementation/)" \
+ "-DTDNATIVES_BIN_DIR=$(realpath ../tdjni_bin/)" \
+ "-DTDNATIVES_DOCS_BIN_DIR=$(realpath ../tdjni_docs/)" \
+ "-DTd_DIR=$(realpath ../td_bin/lib/cmake/Td/)" \
+ "-DJAVA_SRC_DIR=$(realpath ../src/main/jni-java-src/)" \
+ "-DTDNATIVES_CPP_SRC_DIR:PATH=$(realpath ../src/main/jni-cpp-src/)" \
  ${CMAKE_EXTRA_ARGUMENTS_TDJNI} \
  ${CMAKE_EXTRA_ARGUMENTS} \
- "$(realpath -m ../src/main/jni-cpp-src/)"
+ "$(realpath ../src/main/jni-cpp-src/)"
 
 # Build
 echo "Compiling ${IMPLEMENTATION_NAME} jni..."

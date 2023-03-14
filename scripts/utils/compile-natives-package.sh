@@ -13,6 +13,7 @@
 brew install maven
 brew install openssl
 brew install coreutils
+brew install cmake
 export OPENSSL_ROOT_DIR="/opt/homebrew/opt/openssl@3"
 export OPERATING_SYSTEM_NAME="osx"
 export CPU_ARCHITECTURE_NAME="aarch64"

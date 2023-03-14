@@ -94,13 +94,13 @@ echo "Copying *.tlo files..."
 cp -r ../implementation/td/generate/auto/tlo/. ../implementation/td/generate/scheme/.
 
 
-echo "Generated executable '$(realpath -m ./td/generate/generate_common)'"
-echo "Generated executable '$(realpath -m ./td/generate/td_generate_java_api)'"
-echo "Generated executable '$(realpath -m ./td/generate/td_generate_json)'"
-echo "Generated executable '$(realpath -m ../implementation/td/generate/JavadocTlDocumentationGenerator.php)'"
-echo "Generated executable '$(realpath -m ../implementation/td/generate/TlDocumentationGenerator.php)'"
-echo "Generated executable '$(realpath -m ../implementation/td/generate/scheme/td_api.tl)'"
-echo "Generated executable '$(realpath -m ../implementation/td/generate/scheme/td_api.tlo)'"
+echo "Generated executable '$(realpath ./td/generate/generate_common)'"
+echo "Generated executable '$(realpath ./td/generate/td_generate_java_api)'"
+echo "Generated executable '$(realpath ./td/generate/generate_json)'"
+echo "Generated executable '$(realpath ../implementation/td/generate/JavadocTlDocumentationGenerator.php)'"
+echo "Generated executable '$(realpath ../implementation/td/generate/TlDocumentationGenerator.php)'"
+echo "Generated executable '$(realpath ../implementation/td/generate/scheme/td_api.tl)'"
+echo "Generated executable '$(realpath ../implementation/td/generate/scheme/td_api.tlo)'"
 
 echo "Done."
 exit 0
